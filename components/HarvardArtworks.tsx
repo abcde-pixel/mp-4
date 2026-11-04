@@ -32,7 +32,7 @@ export default function HarvardArtworks(props: {data: Artworks[]}){
                 <SingleArtDiv key={art.id}>
                     <h2>{art.title}</h2>
                     <h3>{art.dated}</h3>
-                    {art.primaryimageurl? <Image src={art.primaryimageurl} alt={art.title} width={300} height={300} unoptimized/> : <StyledP>No images available</StyledP>}
+                    {art.primaryimageurl? <Image src={art.primaryimageurl} alt={art.title} width={200} height={200} unoptimized/> : <StyledP>No images available</StyledP>}
                 </SingleArtDiv>
             ))}
         </AllArtsDiv>
