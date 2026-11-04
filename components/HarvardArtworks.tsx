@@ -24,13 +24,15 @@ const StyledP = styled.p`
 export default function HarvardArtworks(props: {data: Artworks[]}){
     //for the images, we must first check whether it is null or not, and if it is null, then we will render it at all
     //otherwise, if it receives a null address, it will complain about it
+    //Moreover, we must have to add the "unoptimized" attribute since since it allows the Vercel's image optimizer
+    //to load Harvard Artworks images, otherwise if we access this website through Vercel, what we could see would are all broken images
     return(
         <AllArtsDiv>
             {props.data.map((art) =>(
                 <SingleArtDiv key={art.id}>
                     <h2>{art.title}</h2>
                     <h3>{art.dated}</h3>
-                    {art.primaryimageurl? <Image src={art.primaryimageurl} alt={art.title} width={300} height={300}/> : <StyledP>No images available</StyledP>}
+                    {art.primaryimageurl? <Image src={art.primaryimageurl} alt={art.title} width={300} height={300} unoptimized/> : <StyledP>No images available</StyledP>}
                 </SingleArtDiv>
             ))}
         </AllArtsDiv>
